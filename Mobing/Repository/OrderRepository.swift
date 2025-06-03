@@ -40,7 +40,7 @@ class FireBaseOrderRepository {
             }
             
             guard !isSold else {
-                completion(NSError(domain: "Firebase", code: 400, userInfo: [NSLocalizedDescriptionKey: "Car is already sold."]))
+                completion(NSError(domain: "Firebase", code: 400, userInfo: [NSLocalizedDescriptionKey: "Stok Kosong"]))
                 return
             }
             
