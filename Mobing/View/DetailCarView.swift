@@ -104,7 +104,7 @@ struct DetailCarView: View {
                             }) {
                                 HStack {
                                     Image(systemName: "phone.fill")
-                                    Text("Place Order")
+                                    Text("Beli Sekarang")
                                 }
                                 .frame(maxWidth: .infinity)
                                 .padding()

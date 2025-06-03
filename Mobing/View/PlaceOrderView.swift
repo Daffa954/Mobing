@@ -82,7 +82,7 @@ struct PlaceOrderView: View {
                             if viewModel.isLoading {
                                 ProgressView()
                             } else {
-                                Text("Confirm Order")
+                                Text("Put Order")
                                     .fontWeight(.bold)
                             }
                             Spacer()

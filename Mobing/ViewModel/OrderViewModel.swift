@@ -46,7 +46,7 @@ class OrderViewModel: ObservableObject {
             totalPrice: totalPrice,
             address: address,
             phone: phone,
-            name: name,
+            name: name
             
         )
         
