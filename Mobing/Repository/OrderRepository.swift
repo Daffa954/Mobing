@@ -58,6 +58,59 @@ class FireBaseOrderRepository {
             }
         }
     }
+    
+    func fetchSoldOrdersByUser(userId: String, completion: @escaping ([OrderModel]) -> Void) {
+        ref.observeSingleEvent(of: .value) { snapshot in
+            var soldOrders: [OrderModel] = []
 
+            guard let ordersDict = snapshot.value as? [String: [String: Any]] else {
+                completion([])
+                return
+            }
 
+            let group = DispatchGroup()
+
+            for (_, orderData) in ordersDict {
+                if let fetchedUserId = orderData["userId"] as? String, fetchedUserId == userId,
+                   let idString = orderData["id"] as? String,
+                   let carId = orderData["carId"] as? Int,
+                   let sellerId = orderData["sellerId"] as? Int,
+                   let dateString = orderData["date"] as? String,
+                   let date = ISO8601DateFormatter().date(from: dateString),
+                   let totalPrice = orderData["totalPrice"] as? Double,
+                   let address = orderData["address"] as? String,
+                   let phone = orderData["phone"] as? String,
+                   let name = orderData["name"] as? String {
+
+                    group.enter()
+                    let carRef = Database.database().reference().child("cars").child(String(carId))
+
+                    carRef.observeSingleEvent(of: .value) { carSnapshot in
+                        defer { group.leave() }
+
+                        if let carData = carSnapshot.value as? [String: Any],
+                           let isSold = carData["isSold"] as? Bool, isSold == true {
+
+                            let order = OrderModel(
+                                id: UUID(uuidString: idString) ?? UUID(),
+                                userId: fetchedUserId,
+                                carId: carId,
+                                sellerId: sellerId,
+                                date: date,
+                                totalPrice: totalPrice,
+                                address: address,
+                                phone: phone,
+                                name: name
+                            )
+                            soldOrders.append(order)
+                        }
+                    }
+                }
+            }
+
+            group.notify(queue: .main) {
+                completion(soldOrders)
+            }
+        }
+    }
 }

@@ -19,6 +19,8 @@ struct PlaceOrderView: View {
     @State private var showingSuccessAlert = false
     @State private var showingErrorAlert = false
 
+    @State private var showOrderHistory = false
+
     var body: some View {
         NavigationStack {
             Form {
@@ -107,15 +109,22 @@ struct PlaceOrderView: View {
                 }
             }
             .alert("Order Failed", isPresented: $showingErrorAlert) {
-                Button("OK", role: .cancel) {}
+                Button("See Orders") {
+                    showOrderHistory = true
+                }
             } message: {
                 Text(viewModel.errorMessage ?? "Unknown error")
+            }.sheet(isPresented: $showOrderHistory) {
+                OrderHistoryView()
             }
             .alert("Order Placed", isPresented: $showingSuccessAlert) {
-                Button("OK") {
-                    viewModel.orderSuccess = false // Reset state
-                    dismiss()
+                Button("Go to Order History") {
+                    viewModel.orderSuccess = false
+                    showOrderHistory = true
                 }
+            }
+            .sheet(isPresented: $showOrderHistory) {
+                OrderHistoryView()
             }
         }
     }

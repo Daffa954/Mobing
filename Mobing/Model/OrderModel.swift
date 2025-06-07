@@ -18,3 +18,4 @@ struct OrderModel: Identifiable, Hashable, Codable {
     var phone: String
     var name : String
 }
+

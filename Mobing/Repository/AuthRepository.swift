@@ -33,9 +33,8 @@ class FirebaseAuthRepository {
         return UserModel(
             id: value["id"] as? String ?? "",
             username: value["name"] as? String ?? "",
-            email: value["email"] as? String ?? "",
-            
-            
+            email: value["email"] as? String ?? ""
+
         )
     }
 

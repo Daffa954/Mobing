@@ -49,6 +49,7 @@ class AuthViewModel: ObservableObject {
             }
         } catch {
             DispatchQueue.main.async {
+                
                 self.falseCredential = true
             }
         }

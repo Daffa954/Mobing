@@ -18,6 +18,8 @@ class OrderViewModel: ObservableObject {
     private let networkManager: NetworkManager
     private let currentUserId = "999" // Simulasi user ID
     
+    @Published var mySoldOrders: [OrderModel] = []
+    
     init(
         orderRepository: FireBaseOrderRepository = FireBaseOrderRepository(),
         networkManager: NetworkManager = NetworkManager()
@@ -61,6 +63,16 @@ class OrderViewModel: ObservableObject {
                     self.errorMessage = nil
                     self.orderSuccess = true // Set success true
                 }
+            }
+        }
+    }
+    
+  
+
+    func loadMySoldOrders(currentUserId: String) {
+        orderRepository.fetchSoldOrdersByUser(userId: currentUserId) { [weak self] orders in
+            DispatchQueue.main.async {
+                self?.mySoldOrders = orders
             }
         }
     }
