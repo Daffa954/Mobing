@@ -16,7 +16,7 @@ class OrderViewModel: ObservableObject {
 
     private let orderRepository: FireBaseOrderRepository
     private let networkManager: NetworkManager
-    private let currentUserId = "999" // Simulasi user ID
+    private let currentUserId = "999" 
     
     @Published var mySoldOrders: [OrderModel] = []
     
