@@ -16,7 +16,7 @@ class OrderViewModel: ObservableObject {
 
     private let orderRepository: FireBaseOrderRepository
     private let networkManager: NetworkManager
-    private let currentUserId = "999" // Simulasi user ID
+//    private let currentUserId = "999" // Simulasi user ID
     
     @Published var mySoldOrders: [OrderModel] = []
     
@@ -28,7 +28,7 @@ class OrderViewModel: ObservableObject {
         self.networkManager = networkManager
     }
     
-    func createOrder(carId: Int, sellerId: Int, totalPrice: Double, address: String, phone: String, date: Date, name : String) {
+    func createOrder(carId: Int, sellerId: Int, totalPrice: Double, address: String, phone: String, date: Date, name : String, userID: String) {
         errorMessage = nil
         
         guard networkManager.isConnected else {
@@ -41,7 +41,7 @@ class OrderViewModel: ObservableObject {
         
         let newOrder = OrderModel(
             id: UUID(),
-            userId: currentUserId,
+            userId: userID,
             carId: carId,
             sellerId: sellerId,
             date: date,

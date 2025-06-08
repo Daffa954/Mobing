@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseDatabase
 
-// TIDAK ADA ENUM CARREPOSITORYERROR DI SINI
 
 class FireBaseCarRepository {
     private let ref: DatabaseReference
@@ -17,7 +16,6 @@ class FireBaseCarRepository {
         self.ref = Database.database().reference().child("cars")
     }
 
-    /// Mengambil semua data mobil dari Firebase secara asinkron.
     func fetchCars() async throws -> [CarModel] {
         return try await withCheckedThrowingContinuation { continuation in
             ref.observeSingleEvent(of: .value, with: { snapshot in
