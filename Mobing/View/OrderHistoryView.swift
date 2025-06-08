@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OrderHistoryView: View {
     @StateObject private var viewModel = OrderViewModel()
+    @EnvironmentObject var authViewModel : AuthViewModel
 
        var body: some View {
            NavigationView {
@@ -23,7 +24,7 @@ struct OrderHistoryView: View {
                }
                .navigationTitle("Order History")
                .onAppear {
-                   viewModel.loadMySoldOrders(currentUserId: "999") 
+                   viewModel.loadMySoldOrders(currentUserId: authViewModel.user?.uid ?? "")
                }
            }
        }

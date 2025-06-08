@@ -10,6 +10,7 @@ import SwiftUI
 struct PlaceOrderView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: OrderViewModel = OrderViewModel()
+    @EnvironmentObject var authViewModel : AuthViewModel
     let car: CarModel
 
     @State private var address: String = ""
@@ -76,6 +77,7 @@ struct PlaceOrderView: View {
                             address: address,
                             phone: phone,
                             date: Date(),
+                            userID: authViewModel.myUser?.id ?? "",
                             name: name
                         )
                     }) {
@@ -130,40 +132,40 @@ struct PlaceOrderView: View {
     }
 }
 
-#Preview {
-    PlaceOrderView(
-        car : CarModel(
-            id: 1,
-            name: "Model 3",
-            brand: "Tesla",
-            price: 35000,
-            totalDistance: 2000,
-            yearBuilt: 2020,
-            insentive: 2500,
-            imageURL: "https://www.tesla.com/sites/default/files/styles/large/public/model3-front-quarter-1200.jpg?itok=1547477684",
-            description: "This is a description",
-            sellerID: 1,
-            isSold: false
-        )
-    )
-}
-
-
-#Preview {
-    PlaceOrderView(
-        car : CarModel(
-            id: 1,
-            name: "Model 3",
-            brand: "Tesla",
-            price: 35000,
-            totalDistance: 2000,
-            yearBuilt: 2020,
-            insentive: 2500,
-            imageURL: "https://www.tesla.com/sites/default/files/styles/large/public/model3-front-quarter-1200.jpg?itok=1547477684",
-            description: "This is a description",
-            sellerID: 1,
-            isSold: false
-        )
-    )
-}
-
+//#Preview {
+//    PlaceOrderView(
+//        car : CarModel(
+//            id: 1,
+//            name: "Model 3",
+//            brand: "Tesla",
+//            price: 35000,
+//            totalDistance: 2000,
+//            yearBuilt: 2020,
+//            insentive: 2500,
+//            imageURL: "https://www.tesla.com/sites/default/files/styles/large/public/model3-front-quarter-1200.jpg?itok=1547477684",
+//            description: "This is a description",
+//            sellerID: 1,
+//            isSold: false
+//        )
+//    )
+//}
+//
+//
+//#Preview {
+//    PlaceOrderView(
+//        car : CarModel(
+//            id: 1,
+//            name: "Model 3",
+//            brand: "Tesla",
+//            price: 35000,
+//            totalDistance: 2000,
+//            yearBuilt: 2020,
+//            insentive: 2500,
+//            imageURL: "https://www.tesla.com/sites/default/files/styles/large/public/model3-front-quarter-1200.jpg?itok=1547477684",
+//            description: "This is a description",
+//            sellerID: 1,
+//            isSold: false
+//        )
+//    )
+//}
+//
