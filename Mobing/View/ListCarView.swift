@@ -3,6 +3,7 @@ import SwiftUI
 struct ListCarView: View {
     @StateObject private var viewModel: CarListViewModel
     @StateObject private var networkManager: NetworkManager
+    @EnvironmentObject var authVM: AuthViewModel
 
     init() {
         let sharedNetworkManager = NetworkManager()

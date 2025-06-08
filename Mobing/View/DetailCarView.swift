@@ -6,6 +6,8 @@ struct DetailCarView: View {
     @StateObject private var viewModel = CarDetailViewModel()
     let carId: Int
     @State private var isPlacingOrder = false
+    @EnvironmentObject var authVM: AuthViewModel
+
     var body: some View {
         Group {
             if let car = viewModel.car {

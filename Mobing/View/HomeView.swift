@@ -15,7 +15,7 @@ struct HomeView: View {
     @Binding var showLogin: Bool
     var body: some View {
         VStack{
-            Text("Home")
+            Text("\(authVM.user?.uid ?? "No User")")
                 .font(.title)
             Button(action: {
                 self.authVM.signOut()
