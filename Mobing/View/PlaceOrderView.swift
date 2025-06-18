@@ -78,7 +78,7 @@ struct PlaceOrderView: View {
                             phone: phone,
                             date: Date(),
                             name: name,
-                            userID: authViewModel.user?.uid ?? "No User",
+                            userID: authViewModel.user?.uid ?? "No User"
                         )
                     }) {
                         HStack {

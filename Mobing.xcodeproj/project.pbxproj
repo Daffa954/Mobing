@@ -15,6 +15,8 @@
 		CF156E752DE0835A00292AAE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CF156E742DE0835A00292AAE /* FirebaseDatabase */; };
 		CF7EFED62DEB288F00701037 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CF7EFED52DEB288F00701037 /* FirebaseFirestore */; };
 		CF7EFED82DEB291800701037 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CF7EFED72DEB291800701037 /* FirebaseFirestoreCombine-Community */; };
+		D82A96ED2E02A5150089CE23 /* cybertruck.scn in Resources */ = {isa = PBXBuildFile; fileRef = D82A96EC2E02A5150089CE23 /* cybertruck.scn */; };
+		D8CBBD1D2E0281ED000F03F8 /* Tesla Model Triangled.scn in Resources */ = {isa = PBXBuildFile; fileRef = D8CBBD1C2E0281ED000F03F8 /* Tesla Model Triangled.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		CF156E402DE081FC00292AAE /* MobingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF156E4A2DE081FC00292AAE /* MobingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF156E5D2DE0821400292AAE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D82A96EC2E02A5150089CE23 /* cybertruck.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = cybertruck.scn; sourceTree = "<group>"; };
+		D8CBBD1C2E0281ED000F03F8 /* Tesla Model Triangled.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Tesla Model Triangled.scn"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -94,6 +98,8 @@
 		CF156E2A2DE081FA00292AAE = {
 			isa = PBXGroup;
 			children = (
+				D82A96EC2E02A5150089CE23 /* cybertruck.scn */,
+				D8CBBD1C2E0281ED000F03F8 /* Tesla Model Triangled.scn */,
 				CF156E5D2DE0821400292AAE /* .gitignore */,
 				CF156E352DE081FA00292AAE /* Mobing */,
 				CF156E432DE081FC00292AAE /* MobingTests */,
@@ -250,6 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82A96ED2E02A5150089CE23 /* cybertruck.scn in Resources */,
+				D8CBBD1D2E0281ED000F03F8 /* Tesla Model Triangled.scn in Resources */,
 				CF156E5E2DE0821C00292AAE /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
